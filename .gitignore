@@ -3,4 +3,6 @@
 *.json
 *.xml
 *.iml
+.idea/
+.git/
 .vscode/
