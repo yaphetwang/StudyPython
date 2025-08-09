@@ -8,8 +8,7 @@ for x in range(cnt):
 else:
     print("finish!")
 
-new_list = [1, 2, 3, 4, 5]
-new_list.append(6)
+new_list = [1, 2, 3, 4, 5, 6]
 print(new_list)
 new_list = list()
 print("新的空list:", new_list)
@@ -40,14 +39,14 @@ listDemo = ['google', 'taobao', 'baidu', 'huawei']
 new_dict = {key: len(key) for key in listDemo}
 print(new_dict)
 
-new_dict1 = {x: x**2 for x in [2, 4, 6]}
+new_dict1 = {x: x ** 2 for x in [2, 4, 6]}
 print(new_dict1)
 
 # { expression for item in Sequence if conditional }
-new_set = {x**2 for x in [1, 2, 3]}
+new_set = {x ** 2 for x in [1, 2, 3]}
 print(new_set)
 
-new_set2 = {x**2 for x in new_set}
+new_set2 = {x ** 2 for x in new_set}
 print(new_set2)
 
 new_set1 = {x for x in 'abracadabra' if x not in 'abc'}
