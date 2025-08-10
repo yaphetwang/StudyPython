@@ -27,7 +27,7 @@ else:
 # 推导式
 # [out_exp_res for out_exp in input_list if condition]
 # out_exp_res 可以是表达式 也可以是一个函数（列表元素当入参）
-names = ['wangyafei', 'lidandan', 'yangyang', 'huanghongyi']
+names = ['wayfaring', 'ligand', 'yang yang', 'hurraying']
 new_names = [name.upper() for name in names if len(name) > 3]
 print(new_names)
 
