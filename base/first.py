@@ -1,4 +1,5 @@
-#!/usr/bin/python3
+import sys
+from symtable import Class
 
 print('hello world!!!')
 
@@ -61,3 +62,72 @@ generator = (x for x in range(10))
 print(type(generator))
 new_tuple = tuple(generator)
 print(new_tuple)
+
+# 迭代器
+it = iter(tuple1)
+print(next(it))
+for item in it:
+    print(item, end=" ")
+
+it = iter(tuple1)
+while True:
+    try:
+        print(next(it), end=" ")
+    except StopIteration:
+        # sys.exit()
+        break
+
+
+class MyNumbers:
+    def __iter__(self):
+        self.a = 1
+        return self
+
+    def __next__(self):
+        if self.a <= 20:
+            x = self.a
+            self.a += 1
+            return x
+        else:
+            raise StopIteration
+
+
+myclass = MyNumbers()
+myIter = iter(myclass) # 用类实例来创建迭代器，需要重写iter和next方法
+for x in myIter:
+    print(x, end=" ")
+
+# 生成器, 使用了yield的函数被称为生成器
+print('\n')
+
+
+def countdown(n):
+    while n > 0:
+        yield n
+        n -= 1
+
+
+# 创建生成器对象
+generator = countdown(5)
+for x in generator:
+    print(x, end=" ")
+
+print('打印斐波那契数列')
+
+
+def fibonacci(n):
+    a, b, count = 0, 1, 0
+    while True:
+        if count > n:
+            return
+        yield a
+        a, b = b, a + b
+        count += 1
+
+
+f = fibonacci(10)  # f是一个迭代器，有生成器返回
+while True:
+    try:
+        print(next(f), end=" ")
+    except StopIteration:
+        sys.exit()
